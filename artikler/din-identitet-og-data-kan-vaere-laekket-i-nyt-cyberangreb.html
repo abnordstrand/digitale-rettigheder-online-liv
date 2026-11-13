@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Din identitet og data kan være lækket i nyt cyberangreb | Digitalt Privatliv</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <script src="/js/script.js" defer></script> <!-- Defer sørger for filen indlæses først efter HTML'en -->
+</head>
+
+<body>
+    <!--Skip to hovedindhold-->
+    <a href="#hovedindhold" class="skip-to-main-content-link">Gå til hovedindhold </a>
+
+    <header>
+        <div class="preheader">
+            <div class="container">
+                <a href="tel:+4511223344">+45 11 22 33 44</a>
+                <a href="mailto:hej@digitaltprivatliv.dk">hej@digitaltprivatliv.dk</a>
+                <p>Support: Man-Fre 08.00-16.30</p>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <a class="logo" href="/index.html">
+                    <img src="/img/digitalt-privatliv-logo-dark-3.png" alt="Digitalt Privatliv Logo">
+                </a>
+
+                <!-- Bars -->
+                <button id="hamburger" aria-expanded="false" aria-controls="menu" aria-label="open navigation">
+                    <!-- aria-expanden fortæller skærmoplæseren at menuen er lukket-->
+                    <!--aria-label giver skærmlæseren en besked om hvad knappen gør-->
+                    <!--button gør menuen trykbar så den kan åbnes via tastatur-->
+                    <!--aria-controls fortæller skærmoplæseren at menuen er styret af knappen-->
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <ul id="menu">
+                    <li class="nav-link"><a href="/index.html">Forside</a></li>
+                    <li class="nav-link"><a href="/artikler/index.html">Artikler</a></li>
+                    <li class="nav-link"><a href="/kontakt.html">Kontakt</a></li>
+
+                    <li><a class="cta-knap mellem-knap hamburger-cta" href="/kontakt.html">Brug for hjælp?</a></li>
+                </ul>
+
+                <a class="cta-knap mellem-knap" href="/kontakt.html">Brug for hjælp?</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="hovedindhold">
+        <section class="container single-artikel">
+            <div class="hero">
+                <nav class="breadcrumbs"><a href="/index.html">Forside</a> / <a href="/artikler/index.html">Artikler</a> /
+                    Artikel: Data lækket i cyberangreb</nav>
+                <h1>Din identitet og data kan være lækket i nyt cyberangreb</h1>
+                <p>En teknisk sårbarhed hos et teleselskab har givet uvedkommende adgang til over 400.000 danskeres adresser
+                    og identiteter.</p>
+
+                <ul class="meta-info">
+                    <li>Kategori: <a href="#">Sikkerhed</a></li>
+                    <li>Dato: <a href="#">26. oktober 2026</a></li>
+                    <li>Forfatter: <a href="#">Anders Andersen</a></li>
+                </ul>
+                <img src="/img/artikler/artikel-1.jpg" alt="Hacker foran en computer">
+            </div>
+            <div class="indhold">
+                <h2>Datalæk hos teleselskabet 3</h2>
+                <p>Fredag d. 23. oktober og i den efterfølgende weekend har teleselskabet 3 slået alarm efter læk af
+                    adresser og identiter på over 400.000 danskere.</p>
+                <p>“3 undersøger en sikkerhedshændelse i en API – en teknisk forbindelse, der gør det muligt for digitale
+                    systemer at udveksle oplysninger – i den danske forretning. De foreløbige undersøgelser peger på, at
+                    uvedkommende kan have fået adgang til oplysninger. Hændelsens præcise karakter og omfang undersøges
+                    fortsat”, det skriver 3 i en pressemeddelse via. Ritzau.</p>
+
+                <div class="citat">
+                    <q>Vi tager sagen alvorligt. Den identificerede adgang er blokeret.</q>
+                    <cite>Rajib Eklund, Chief Techinal and Innovation Officer hos 3.</cite>
+                </div>
+
+                <p>3 meddeler at de relevante myndigheder er blevet orienteret og at påvirkede kunder kontaktes direkte.</p>
+                <p>“Hændelsen er ikke relateret til PHP-sårbarhederne”, skriver 3 ifølge Ritzau.</p>
+
+                <h3>Måske er du påvirket</h3>
+                <p>Hvis din identitet er lækket er du blevet kontaktet direkte af 3.</p>
+                <p>3 skriver selv på deres hjemmeside at “Berørte kunder er blevet informeret om, hvilke af deres
+                    oplysninger der er blevet tilgået. CPR-numre, betalingsoplysninger og passwords er ikke berørt.”</p>
+
+                <figure> <!-- Semantisk tag til at omslutte f.eks. img og figcaption som er semantisk billedtekst -->
+                    <img src="/img/artikler/artikel-1-1.jpg" alt="Hængelås på computertastatur">
+                    <figcaption>Med en mere og mere digitaliseret hverdag er vi nødt til at beskytte vores identitet og data
+                        på den bedst mulige måde. Foto: Cliff Hang, Pixabay</figcaption>
+                </figure>
+
+                <h3>Hvad kan du gøre for at beskytte din identitet og data?</h3>
+                <p>Ewii har her givet nogle gode råde til digital sikkerhed på nettet. Men er disse blot en stærkere
+                    adgangskode? Nej, der er lidt mere end det. Nedenfor finder du en oplistning af de vigtigste råd:</p>
+
+                <ol>
+                    <li>
+                        <h4>Brug ikke den samme adgangskode alle steder.</h4>
+                        <p>Det kan godt være at det er det der er nemmest at huske, men det er netop dette der også gør det
+                            nemmere for uvedkommende at bryde ind i dit digitale liv. Ewii forslår at du bruger en
+                            adgangskode på 15+ tegn, som ikke indeholder fødselsdatoer, kæledyrs navne, adresser, m.m.</p>
+                    </li>
+                    <li>
+                        <h4>Brug 2-faktor login</h4>
+                        <p>2-faktor login eller 2-factor authentication, forkortes som 2FA, kender du fra MitID. Når du har
+                            indtastet dit brugernavn, skal du godkende på din telefon før du endeligt kan logge ind. Dette
+                            forhindre udvedkommende med dit brugernavn og din adgangskode i at få adgang.</p>
+                    </li>
+                    <li>
+                        <h4>Fald ikke i falske e-mails</h4>
+                        <p>Falske e-mails, det der også kaldes for phishing, kan være svære at spotte. Oftest kan du spotte
+                            dem ved at kigge på afsender e-mailadressen. F.eks. Skat sender altid fra afsendernavn@skat.dk.
+                            Bemærk at i nogle tilfælde anvender virksomheder og det offentlige også afsender e-mailadresser
+                            som: afsendernavn@email-service.skat.dk. Tommelfingerreglen er at, hvis det er for godt til at
+                            være sandt er det med stor sandsynlighed fup. Du vil aldrig nogensinde vinde en iPhone fordi du
+                            har betalt for meget til Skat, til din fagforening eller lignende.</p>
+                    </li>
+                    <li>
+                        <h4>Virus, netværk og digitale trusler</h4>
+                        <p>Det kan være en god idé at sørge for at du har en antivirusprogram, der kan stoppe phishing, spam
+                            og andre digitale trusler. Antivirusprogrammer hjælper med at beskytte dit kamera og mikrofon,
+                            så ingen lytter eller ser med, har indbygget firewall, kan “makulere” filer med følsomt indhold
+                            og meget mere. Ewii og andre internetudbydere tilbyder pakker inklusiv komplette
+                            sikkerhedspakker.</p>
+                    </li>
+                    <li value="0" class="no-style"> <!-- Styling til class'en sætter list-style-type: none så nummerering ikke vises på kun dette list-item. -->
+                        <div class="indlejret-billeder">
+                            <img src="/img/artikler/artikel-1-1.jpg" alt="Virus advarsel på computerskærm">
+                            <img src="/img/artikler/artikel-1-1.jpg" alt="E-boks loginside">
+                        </div>
+                    </li>
+                    <li value="5"> <!-- Value="5" sætter dette elements nummer til 5 i stedet for 6. Det gør også at de efterfølgende list-items nummereres 6, 7, osv. (Følger denne med +1) -->
+                        <h4>Sørg for at din programmer er up-to-date</h4>
+                        <p>Sørg regelmæssigt for at dine apps og programmer bliver opdateret til nyeste version. Udviklerne
+                            bag disse udgiver typisk opdateringer med henblik på at gøre programmet mere sikkert, og ikke
+                            bare for at gøre det besværligt for dig.</p>
+                    </li>
+                    <li>
+                        <h4>Shop sikker på nettet</h4>
+                        <p>Sørg for at tjekke om webshoppen du shopper på er ægte. Læs butikkens anmeldelser på f.eks.
+                            Trustpilot, tjek returpolitikken og vurder om tilbuddet er for godt til at være sandt. Se Ewii’s
+                            fulde liste over hvad du skal lægge mærke til når du shopper på nettet.</p>
+                    </li>
+                    <li>
+                        <h4>Digital post</h4>
+                        <p>Tilmeld dig digital post og e-boks i det omfang, hvor det er muligt. Det er mere sikkert at
+                            modtage breve på denne måde end via. en e-mail. Digital post anvendes både af det offentlige og
+                            af private virksomheder som banker, fagforeninger, forsikringsselskaber, forsyningsselskaber og
+                            mange flere.</p>
+                    </li>
+                </ol>
+
+                <h3 class="artikel-evaluering-titel">Hvad synes du om artiklen?</h3>
+                <ul class="artikel-evaluering">
+                    <!-- Disse er buttons i stedet for <a> idet de ikke skal linke til noget, men har blot en handling, som kan behandles i backend f.eks. til at gemme i en database. -->
+                    <li><button type="button"><i class="bi bi-emoji-frown-fill"></i> Ikke brugbar</button></li>
+                    <li><button type="button"><i class="bi bi-emoji-neutral-fill"></i> Neutral</button></li>
+                    <li><button type="button"><i class="bi bi-emoji-laughing-fill"></i> Brugbar</button></li>
+                </ul>
+
+                <h3>Referencer</h3>
+                <ul class="referencer">
+                    <li><b>3 undersøger sikkerhedshændelse med kundeoplysninger</b> (Ritzau, 23.10.2026 22:57)</li>
+                    <li><b>Teleselskabet 3 ramt af cyberangreb</b> (MereMobil.dk, 26.10.2026)</li>
+                    <li><b>3 ramt af cyberangreb: Dine persondata kan være lækket</b> (Computerworld, 26.10.2026 14.33)</li>
+                </ul>
+            </div>
+        </section>
+        <section class="artikler container">
+            <h2 class="title">Relaterede artikler</h2>
+
+            <div class="artikler-article-cards">
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-2.jpg" alt="VPN på computerskærm">
+                    </a>
+                    <a class="kategori" href="#">Netværk</a>
+                    <h3><a href="#">Fordele og ulemper ved at anvende en VPN</a></h3>
+                    <p>13. november 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-3.jpg" alt="Instagram appen på telefonskærm">
+                    </a>
+                    <a class="kategori" href="#">Sociale medier</a>
+                    <h3><a href="#">Hvordan gennemskuer man AI på sociale medier?</a></h3>
+                    <p>9. november 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-4.jpg" alt="ChatGPT på computerskærm">
+                    </a>
+                    <a class="kategori" href="#">Kunstig intelligens</a>
+                    <h3><a href="#">Derfor skal du holde igen med at skrive til "chatten"</a></h3>
+                    <p>1. november 2026</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container container">
+            <section>
+                <h3>Genveje</h3>
+                <ul>
+                    <li class="nav-link"><a href="/index.html">Forside</a></li>
+                    <li class="nav-link"><a href="/artikler/index.html">Artikler</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="/kontakt.html">Kontakt</a></li>
+
+                    <li class="nav-link"><a href="#">Helpdesk</a></li>
+                    <li class="nav-link"><a href="#">Presse</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>B2C</h3>
+                <ul>
+                    <li class="nav-link"><a href="#">Sikkerhedsscan</a></li>
+                    <li class="nav-link"><a href="#">Forsigtighed på netter</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="#">Top 3 tips</a></li>
+
+                    <li class="nav-link"><a href="#">Pådgivning Privat</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>B2B</h3>
+                <ul>
+                    <li class="nav-link"><a href="#">Tilgængelighedstest</a></li>
+                    <li class="nav-link"><a href="#">Tilgængelighedserklæring</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="#">Rådgivning Erhverv</a></li>
+
+                    <li class="nav-link"><a href="#">Workshops</a></li>
+                    <li class="nav-link"><a href="#">E-læring</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Følg os</h3>
+                <ul>
+                    <li class="nav-link"><a href="https://facebook.com" target="_blank"><i
+                                class="bi bi-facebook"></i>Facebook</a></li>
+                    <li class="nav-link"><a href="https://instagram.com" target="_blank"><i
+                                class="bi bi-instagram"></i>Instagram</a></li>
+                    <li class="nav-link"><a href="https://linkedin.com" target="_blank"><i
+                                class="bi bi-linkedin"></i>LinkedIn</a></li>
+                </ul>
+
+            </section>
+            <div class="footer-copyright">
+                <a class="logo" href="/index.html">
+                    <img src="/img/digitalt-privatliv-logo-dark-3.png" alt="Digitalt Privatliv Logo">
+                </a>
+                <div class="copyright-text">
+                    <p>Digitalt Privatliv ApS © 2026</p>
+                    <ul>
+                        <li><a href="#">Handelsbetingelser</a></li>
+                        <li><a href="#">Privatlivspolitik</a></li>
+                        <li><a href="#">Tilgængelighedserklæring</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,10 +1,1305 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    font-size: 18px;
+    /* Ændrer 1em og 1rem fra 16px til 18px */
+
+    /* FARVE VARIABLER JF. FARVE PALETTE */
+    --color-accent-orange: #f37331;
+    --color-dark-blue: #152037;
+    --color-accent-blue: #2c5878;
+    --color-light-blue: #c9e1ee;
+    --color-lightened-dark-blue: #65748B;
+    --color-light-grey: #E5E5E5;
+    --color-lighter-grey: #F0F0F0; /* Umiddelbart kun brugt til baggrundfarve på indhold i single-artikel */
+    --color-white: #fafafa;
+    --color-input-required-invalid: #df1d1d; /* Kun brugt til påkrævet "*" i formularer */
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent-orange);
+    border-radius: 2px;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
     font-family: "Epilogue", sans-serif;
     font-weight: 400;
-    font-style: normal;
+    /* SVARER TIL REGULAR */
+}
+
+/* SKTIP TIL HOVEDINDHOLD */
+/* Denne kode til "skip til hovedindhold er hentet fra denne kilde som er brugt i undervisningen: https://www.a11y-collective.com/blog/skip-to-main-content/#h-manually */
+
+.skip-to-main-content-link {
+  position: absolute; /* Positions the link absolutely on the page, allowing it to be placed anywhere. */
+  left: -9999px; /* Moves the link far off-screen to the left, making it invisible to sighted users. */
+  z-index: 999; /* Sets a high z-index, ensuring that the link will be on top of other page elements if it becomes visible. */
+  padding: 1em;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  opacity: 0; /* Sets the link's opacity to 0, making it fully transparent and invisible. */
+}
+
+.skip-to-main-content-link:focus {
+  left: 50%; /* When the link receives focus (e.g., when a keyboard user tabs to it), it is repositioned horizontally to the centre of the screen. */
+  transform: translateX(-50%); /* This centres the link horizontally by moving it back to the left by 50% of its own width. */
+  opacity: 1; /* The link's opacity is set to 1, making it fully visible. */
+}
+
+body, main {
+    background-color: var(--color-white);
+    color: var(--color-dark-blue);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    /* SVARER TIL SEMI-BOLD */
+    line-height: 1.15;
+    color: var(--color-dark-blue);
+}
+
+h1 {
+    font-size: 3rem;
+    /* SVARER TIL 54PX */
+
+    @media screen and (max-width: 768px) {
+        font-size: 2.11rem; /* Svarer til ca. 38px */
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    /* SVARER TIL 36PX */
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.77rem; /* Svarer til ca. 32px */
+    }
+}
+
+h3 {
+    font-size: 1.333rem;
+    /* SVARER TIL 24PX */
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.222rem; /* Svarer til ca. 22px */
+    }
+}
+
+h4 {
+    font-size: 1.222rem;
+    /* SVARER TIL 22PX */
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.111rem; /* Svarer til ca. 20px */
+    }
+}
+
+p {
+    font-size: 1rem;
+    /* SVARER TIL 18PX */
+    color: var(--color-dark-blue);
+    line-height: 1.5;
+}
+
+span {
+    font-weight: inherit;
+    /* Arver fontens vægt */
+}
+
+b {
+    font-weight: 600; /* Svarer til semi-bold. Det semantiske element giver normal 700 (bold). Desuden sætter *{} font-weight til 400 på alle elementer */
+}
+
+.inline-orange-text {
+    color: var(--color-accent-orange);
+}
+
+label .asterisk {
+    color: var(--color-input-required-invalid);
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    /* FRA KEVIN POWELL YOUTUBE VIDEO (OGSÅ BRUGT I 1. PROJEKT (Tæt På DK):
+    https://youtu.be/Ch_LoWKLv3A?si=Uco2JsPcfazh8Nx9&t=334
+    Tidskode: 05:34-09:20 */
+    --max-width: 1440px;
+    --padding: 1rem;
+    width: min(var(--max-width), 100% - (var(--padding) * 2));
+    /* MIN() FUNKTION VÆLGER DEN MINDSTE AF DE TO VÆRDIER. ENTEN 1440px ELLER 100% FRATRUKKET 1rem PADDING PÅ HVER SIDE */
+    margin-inline: auto;
+    /* LAVER AUTO-MARGIN I VENSTRE OG HØJRE SIDE (INLINE ER X-AKSEN) */
+}
+
+/* #######################################  */
+/* CTA HYPERLINK INLINE-TEKST + CTA KNAPPER */
+/* #######################################  */
+
+a.text-cta {
+    display: inline-block;
+    /* SØRGER FOR AT DER KAN BRUGES MARGIN OG IKKE OVERLAPPER ANDEN TEKST/ANDRE ELEMENTER */
+    font-size: 1rem;
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-blue);
+    line-height: 1.5;
+}
+
+a.text-cta:hover,
+a.text-cta:focus {
+    color: var(--color-dark-blue);
+    border-bottom: 1px solid var(--color-dark-blue);
+}
+
+.nav-link a {
+    color: var(--color-dark-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-link a:hover,
+.nav-link.active a,
+.nav-link a:focus {
+    color: var(--color-accent-blue);
+    border-bottom: 1px solid var(--color-accent-blue);
+}
+
+a.cta-knap, form button {
+    display: inline-block;
+    background-color: var(--color-accent-orange);
+    text-decoration: none;
+    color: var(--color-dark-blue);
+    border: 2.5px solid var(--color-accent-orange); /* Border tilføjes så knappen er visuelt ligeså stor som .outline versionen */
+    font-weight: 500;
+    /* SVARER TIL MEDIUM. DENNE FARVEKOMBINATION OPFYLDER KUN WCAG AAA V. LARGE TEXT (TUNGERE FONT-WEIGHT) */
+    transition:
+        background-color ease-in-out 250ms,
+        color ease-in-out 250ms,
+        border ease-in-out 250ms;
+    cursor: pointer; /* Primært for form button, idet <a> allerede har det som default */
+}
+
+a.cta-knap:hover,
+a.cta-knap:focus,
+a.cta-knap.outline:hover,
+a.cta-knap.outline:focus,
+form button:hover,
+form button:focus {
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
+    border: 2.5px solid var(--color-accent-blue);
+}
+
+a.cta-knap.mellem-knap, .kontakt form button {
+    font-size: 1rem;
+    /* SVARER TIL 18PX, LIGESOM <p> */
+    padding: 1em 2em;
+}
+
+a.cta-knap.lille-knap {
+    font-size: 0.9rem;
+    /* SVARER TIL 16,2PX, BØR SOM UDGANGSPUNKT IKKE BRUGES PÅ DESKTOP */
+    padding: 0.9em 1.5em;
+}
+
+a.cta-knap.outline {
+    background-color: transparent;
+    border: 2.5px solid var(--color-accent-orange);
+}
+
+/* #######################################  */
+/* HEADER */
+/* #######################################  */
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    z-index: 98; /* Sørger for at headeren er øverst. (hamburger menu overlay på mobil er 99, og hamburger ikon-knap er 100) */
+}
+
+header .preheader>* {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-light-grey);
+    justify-content: space-between;
+    /* FORDELER MED LIGE MEGET AFSTAND OG JUSTERER YDERSTE ELEMENTER TIL KANTEN */
+    padding-block: 0.75rem 0.5rem;
+    /* SAMMENTRÆKNING AF PADDING-TOP OG PADDING-BOTOM (BLOCK ER Y-AKSEN) */
+}
+
+header .preheader a,
+.preheader p {
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+header .preheader a {
+    flex-grow: 0;
+}
+
+header .preheader a:hover,
+header .preheader a:focus {
+    color: var(--color-accent-blue);
+    border-bottom: 1px solid var(--color-accent-blue);
+}
+
+header .preheader p {
+    justify-self: flex-end;
+    flex-grow: 1;
+    /* GØR AT <p> OPTAGER MERE PLADS END <a> SOM HAR flex-grow: 0; */
+    text-align: end;
+}
+
+header nav>* { /* Vælger container div'en lige inden i nav-tagget */
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
+    align-items: center;
+    /* CENTRERER PÅ CROSS-AXIS (Y-AKSEN IDET flex-direction ER SIN DEFEAULT VÆRDI PÅ "row" */
+}
+
+header nav a.logo img {
+    max-height: 3em;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    /* CENTRERER PÅ CROSS-AXIS (Y-AKSEN IDET flex-direction ER SIN DEFEAULT VÆRDI PÅ "row" */
+}
+
+header #hamburger, header .hamburger-cta {
+    display: none; /* Fjerner hamburger ikon-knappen, cta-knappen inden i hamburger menu overlayet fra dekstop (vises på mobil i @media-query */
+}
+
+/* Hamburger menu overlay på mobil */
+/* Genbrugt og tilpasset kode fra NERA's undervisning */
+@media screen and (max-width: 768px) {
+    header .preheader {
+        display: none; /* Gemmer preheaderen på mobil (Øverst div med telefon, email og telefontider */
+    }
+
+    header .preheader {
+        display: none; /* Gemmer preheaderen på mobil (Øverst div med telefon, email og telefontider */
+    }
+
+    nav #hamburger { /* Styler knappen med hamburger ikonet */
+        display: flex;
+        background-color: transparent;
+        border: 0;
+        font-size: 2em;
+        cursor: pointer;
+        z-index: 100; /* Er på lag 100 (+1 af #menu) */
+    }
+
+    nav #hamburger .bi-x-lg {
+        color: white;
+    }
+
+    ul#menu {
+        display: none;
+        height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 100px;
+    }
+
+    header .nav-link a {
+        color: white;
+        font-size: 1.5em; /* Svarer til 27px (18px * 1,5 */
+    }
+
+    header .nav-link.active a, 
+    header .nav-link a:hover,
+    header .nav-link a:focus {
+        color: var(--color-light-blue);
+        border-bottom: 2px solid var(--color-light-blue);
+    }
+
+    ul#menu.show {
+        display: flex;
+        position: absolute; /* Gør så elementet kan placeres hvor som helst */
+        top: 0;
+        right: 0;
+        padding: 5em 2em 0 2em;
+        width: 100%;
+        height: 100vh; /* Hele viewportens højde */
+        background-color: var(--color-dark-blue);
+        border: 3px solid var(--color-lightened-dark-blue);
+        z-index: 99; /* Sørger for at denne menu altid er øverst (-1 hamburger ikonet, så dette vises ovenpå). Det kan være en fordel at være højere end 1, hvis andre elementer har samme z-index */
+    }
+
+    nav > * .cta-knap {
+        display: none;
+    }
+
+    nav > * .hamburger-cta {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+}
+
+/* #######################################  */
+/* FOOTER */
+/* #######################################  */
+
+footer { /* Laver baggrund på footeren */
+    margin-top: 3rem;
+    background-image: url(/img/footer.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 2rem 1rem 6rem 1rem;
+}
+
+footer .footer-container { /* Den hvide container der lægger oven på footer-baggrunden. */
+    background-color: var(--color-white);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Laver fire lige store kolonner, alle sammen med bredden 1 fraction */
+    grid-template-rows: 5fr 1fr; /* To rækker. Første er 5 fractions (5/6 høj) og anden række er 1 fraction (1/6 høj) */
+}
+
+footer h3 {
+    font-size: 1.15rem; /* Svarer til 20,7px (18px * 1,15 */
+    margin-bottom: 1rem;
+    color: var(--color-lightened-dark-blue);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0; /* Fjerner indhakket fra listen */
+}
+
+footer li.nav-link {
+    margin-bottom: 1rem;
+}
+
+footer li.nav-link.extra-bottom-margin {
+    margin-bottom: 2rem;
+}
+
+footer li.nav-link a {
+    color: var(--color-dark-blue);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.22rem;
+}
+
+footer li.nav-link i {
+    margin-right: 0.5rem;
+}
+
+.footer-copyright {
+    grid-column: 1 / 5; /* Gør så div'en fylder alle 4 kolonner af .footer-container er delt op i */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligner i bunden, da cross-axis gør lodret (direction = row) */
+}
+
+.footer-copyright .logo img {
+    height: 4rem;
+    width: auto;
+    object-fit: contain;
+    object-position: left;
+}
+
+.footer-copyright .copyright-text ul {
+    display: flex;
+    gap: 0.75rem
+}
+
+.footer-copyright .copyright-text p,
+.footer-copyright .copyright-text a {
+    text-align: end;
+    color: var(--color-lightened-dark-blue);
+    font-size: 0.88rem; /* Svarer til ca. 16px */
+    text-decoration: none;
+}
+
+.footer-copyright .copyright-text a {
+    border-bottom: 1px solid var(--color-lightened-dark-blue);
+}
+
+.footer-copyright a:hover,
+.footer-copyright a:focus {
+    color: var(--color-dark-blue);
+    border-bottom-color: var(--color-dark-blue);
+}
+
+/* Mobil tilpasning af footeren */
+@media screen and (max-width: 768px) {
+    footer .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, auto);
+    }
+
+    footer section {
+        margin-bottom: 2rem;
+        grid-column: span 2;
+    }
+
+    footer li.nav-link a {
+        font-size: 1.15rem;
+    }
+
+    .footer-copyright .logo {
+        object-position: center;
+        margin-bottom: 1rem;
+    }
+
+    .footer-copyright {
+        grid-column: span 2;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-copyright p, .footer-copyright a {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+}
+
+
+/* #######################################  */
+/* BENTO-GRID (PRIMÆRT FORSIDE HERO, MEN DANNER OGSÅ GRUNDLAG FOR BRUG ANDRE STEDER */
+/* #######################################  */
+section.bento-grid>* {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Laver fire lige store kolonner */
+    grid-template-rows: repeat(2, 1fr) minmax(100px, auto);
+    /* Laver først to lige store rækker og tredje række er mindst 100px. Hvis indholdet er højere justeres tredje rækkes højde automatisk */
+    gap: 1rem;
+}
+
+.bento-box {
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+/* * MØRKEBLÅ BOKS TIL VENSTRE I GRIDDET PÅ DESKTOP / ØVERST PÅ MOBIL */
+.bento-box.stor {
+    grid-column: 1 / 3;
+    /* Boksen starter på grid-line 1 og slutter på grid line 3 (span 2) */
+    grid-row: 1 / 3;
+    /* Boksen starter på row-line 1 og slutter på row-line 3 (span 2) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Der bruges justify-content til at centrere lodret idet main-axis er lodret pga. flex-direction: column; */
+    gap: 2rem;
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.bento-box.stor h1,
+.bento-box.stor p {
+    color: var(--color-white);
+}
+
+.bento-box.stor label {
+    display: block;
+    color: var(--color-light-blue);
+    width: 100%;
+    margin-block: 1rem 0.5rem;
+}
+
+.bento-box.stor .input-button-wrapper {
+    position: relative;
+}
+
+.bento-box.stor input {
+    width: 100%;
+    min-height: 3.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: 0;
+}
+
+.bento-box.stor button {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: calc(100% - 1rem);
+    aspect-ratio: 1/1;
+    background-color: var(--color-accent-orange);
+    border-radius: 0.25rem;
+    border: 0;
+    font-size: 1rem;
+    transition: ease 250ms;
+}
+
+.bento-box.stor button:hover,
+.bento-box.stor button:focus {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.bento-box.stor .text-cta {
+    width: fit-content;
+    color: var(--color-light-blue);
+    border-bottom: 1px solid var(--color-light-blue);
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.bento-box.stor .text-cta:hover {
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+}
+
+
+/* * BILLEDEBOKS TIL HØJRE I GRIDDET PÅ DESKTOP / 2. RÆKKE FRA TOPPEN PÅ MOBIL */
+.bento-box.mellem { /* Denne klasse er et billede på index.html */
+    grid-column: 3 / 5; /* Boksen starter på grid-line 3 og slutter på grid line 5 (span 2) */
+    grid-row: 1 / 2; /* Boksen starter på row-line 1 og slutter på row-line 2 (span 1). Halv højde af .bento-box.stor */
+    padding: 0;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+}
+
+/* * LYSEBLÅ BOKS TIL HØJRE PÅ DESKTOP / 3. RÆKKE FRA TOPPEN PÅ MOBIL */
+.bento-box.lille { /* To elementer/bokse har denne klasse */
+    grid-column: 3 span 1; /* Starter på grid-line 1 og er 1 kolonne bred (span 1). Anden boks med .lille starter automatisk på næste grid-line og span'er også 1. */
+    grid-row: 2 / 3; /* Boksen starter på row-line 2 og slutter på row-line 3 (span 1). Halv højde af .bento-box.stor */
+    background-color: var(--color-light-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-box.lille h2 {
+    font-size: 1.5rem;
+}
+
+.bento-box.lille a.text-cta {
+    width: fit-content;
+}
+
+.bento-box.lille .avatars {
+    display: flex;
+    flex-direction: row;
+}
+
+.bento-box.lille .avatars img.avatar {
+    height: 3.25rem;
+    width: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%; /* Cirkel */
+    border: 3px solid var(--color-white);
+    margin-left: -1rem; /* Gør at billederne overlapper hinanden i venstre side med 1rem */
+}
+
+.bento-box.lille .avatars img.avatar:first-child{
+    margin-left: 0; /* Gør at det første billede ikke justeres mod venstre */
+}
+
+/* * BRED BOKS NEDERST PÅ DESKTOP / 4. RÆKKE FRA TOPPEN (NEDERST) PÅ MOBIL */
+.bento-box.bred {
+    grid-column: 1 / 5;
+    /* Fylder alle 4 kolonner, grid-line 1 til 5 (span 4) */
+    grid-row: 3 / 4;
+    /* Tredje og nederste række, grid-line 3 til 4 (span 1). Denne række havde minmax() fra linje 173 */
+    background-color: var(--color-light-grey);
+}
+
+.bento-box.partner-logoer {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(5, 1fr);
+    /* Første kolonne er lidt større på 1.5fr og  derefter er der fem lige store kolonner alle på 1fr */
+    gap: 1rem;
+}
+
+.partner-logoer h2 {
+    font-size: 1.333rem;
+    /* Svarer til 24px */
+}
+
+.partner-logoer img {
+    filter: saturate(0) contrast(0);
+    /* Gør logoerne monokrom/sort-hvid og mindre kontrast (lysere grå). Svarer til et photoshop adjustment layer med mætning=0 og contrast=0.  */
+    width: 100%;
+    padding: 0 1rem;
+    aspect-ratio: 3/1;
+    /* Billederne er 3x bredere end de er høje */
+    object-fit: contain;
+    /* Sørger for at hele billedet/logoet kan ses */
+}
+
+/* Bento grid tilpasset til mobil */
+@media screen and (max-width: 768px) {
+    section.bento-grid>* {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Laver to lige store kolonner */
+        grid-template-rows: repeat(4, auto); /* Laver fire rækker med auto højde */
+        gap: 1rem;
+    }
+
+    .bento-box {
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+
+    .bento-box.stor {
+        grid-column: 1 / 3;
+        grid-row: span 1;
+        gap: 1rem;
+        padding: 3rem 2rem;
+    }
+
+    .bento-box.stor input {
+        padding: 1rem;
+    }
+
+    .hero .bento-box.mellem {
+        display: none;
+    }
+
+    .bento-box.lille {
+        grid-column: span 1; /* Fylder 1 kolonne i bredden */
+    }
+
+    .bento-box.partner-logoer {
+        grid-column: 1 / 3;
+        grid-row: span 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* Første kolonne er lidt større på 1.5fr og  derefter er der fem lige store kolonner alle på 1fr */
+        gap: 1.5rem;
+    }
+
+    .partner-logoer h2 {
+        grid-column: span 2;
+    }
+
+    .partner-logoer img {
+        padding: 0;
+    }
+}
+
+
+/* #######################################  */
+/* FORSIDE VÆRDIER */
+/* #######################################  */
+
+.vaerdier {
+    padding: 60px 0;
+    /* laver padding i top og bund, men ikke i siderne */
+
+}
+
+.vaerdier h2 {
+    margin-bottom: 50px;
+}
+
+.vaerdier h3 {
+    margin-bottom: 1rem;
+}
+
+.vaerdi-article-cards {
+    display: flex;
+    gap: 1rem;
+}
+
+.vaerdi-card {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.vaerdi-card i {
+    /* ikonerne */
+    font-size: 2.5rem;
+    color: var(--color-dark-blue);
+}
+
+@media screen and (max-width: 768px) {
+    .vaerdi-article-cards {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .vaerdi-card {
+        gap: 1rem;
+    }
+    .vaerdi-card i {
+        /* ikonerne */
+        font-size: 1.5rem;
+    }
+}
+
+
+/* #######################################  */
+/* ARTIKLER */
+/* #######################################  */
+
+.artikler {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.artikler h1.title {
+    margin-bottom: 15px;
+}
+
+.artikler h2.title {
+    margin-bottom: 30px;
+}
+
+.artikler p.subtitle {
+    margin-bottom: 50px;
+}
+
+.artikler-article-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+.artikler-article-cards article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.artikler article img {
+    border-radius: 1rem;
+    /* svarer til 18px */
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    object-position: center;
+}
+
+.artikler article a.kategori {
+    background-color: var(--color-light-blue);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 0.5rem;
+    color: var(--color-dark-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: ease-in-out 100ms;
+}
+
+.artikler article a.kategori:hover {
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
+}
+
+.artikler article h3 a {
+    color: var(--color-dark-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.artikler article h3 a:hover {
+    color: var(--color-accent-blue);
+    border-bottom: 1px solid var(--color-accent-blue);
+}
+
+/* .featured klassen er til den øverste sektion på /artikler/index.html */
+
+.artikler.featured-sektion p { 
+    max-width: 768px;
+    /* margin: 10px 0 50px 0; */
+}
+
+.artikler article.featured {
+    background: url(/img/artikler/artikel-1.jpg), linear-gradient(rgb(0, 0, 0, 0.2), rgb(0,0,0, 0.6)); /* Farvet overlay (gradient) ovenpå billedet så tekst kan læses bedre */
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-position: center;
+    min-height: 600px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.artikler article.featured a.kategori {
+    background-color: var(--color-lightened-dark-blue);
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.artikler article.featured h3 a {
+    font-size: 2.66rem;
+    color: var(--color-white);
+    font-weight: 500;
+    margin: 1rem 0;
+}
+
+.artikler article.featured h3 a:hover {
+    color: var(--color-light-blue);
+    border-bottom: 2px solid var(--color-light-blue);
+}
+
+.artikler article.featured p {
+    color: var(--color-white);
+    font-size: 1.15rem;
+    margin-top: 1rem;
+}
+
+.artikler .cta-knap {
+    width: fit-content;
+    display: inline-block;
+    margin-inline: auto;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .artikler-article-cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 3rem;
+    }
+
+    .artikler article.featured {
+        min-height: 500px;
+    }
+
+    .artikler article.featured h3 a {
+        font-size: 2rem;
+    }
+
+
+}
+
+/* #######################################  */
+/* FORSIDE INFO (2-delt sektion) */
+/* #######################################  */
+
+.info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.info div {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+.info .info-image img {
+    border-radius: 1rem;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+.info .info-text-container {
+    order: 1; /* Denne tilføjes for at flytte info-text-container til højre rent visuelt, men for at bevare heading-strukturen i HTML koden. */
+    padding: 3rem;
+}
+
+.info h2, .info p {
+    flex-grow: 1;
+}
+
+.info .info-text-container .cta-knap-container {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 0;
+}
+
+.info .info-text-container .cta-knap {
+    display: inline-block;
+    width: 50%;
+    height: fit-content;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Mobil tilpasning til info sektionen på forsiden */
+@media screen and (max-width: 768px) {
+    .info {
+        flex-direction: column;
+        padding-top: 5rem;
+    }
+
+    .info .info-text-container {
+        order: 0;
+        padding: 0;
+    }
+
+    .info .info-text-container .cta-knap-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .info .info-text-container .cta-knap {
+        width: 100%;
+    }
+
+}
+
+/* #######################################  */
+/* SINGLE ARTIKEL /artikler/din-identitet-og-data-kan-vaere-laekket-i-nyt-cyberangreb */
+/* #######################################  */
+
+/* Hero (øverste del med overskrift, manchet, meta-info, osv. */
+.single-artikel .hero {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+.single-artikel .hero nav.breadcrumbs {
+    margin-bottom: 1rem;
+}
+
+.single-artikel .hero nav.breadcrumbs a,
+.single-artikel .hero .meta-info li a {
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-blue);
+}
+
+.single-artikel .hero h1,
+.single-artikel .hero p {
+    /* text-align: center; */
+    max-width: 1024px;
+}
+
+.single-artikel .hero p {
+    max-width: 768px;
+}
+
+.single-artikel .hero .meta-info {
+    padding: 1rem 0 1rem 0;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.single-artikel .hero img {
+    border-radius: 1rem;
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* Horisontalt centreret, 20% fra toppen (vertikal justering) */
+}
+
+/* Selve artikel indholdet (primært tekst baseret) */
+.single-artikel .indhold {
+    /* En smallere version af .container */
+    --max-width: 1024px;
+    --padding: 1rem; /* Variabel til minmax() - skal ikke forvekles med padding: */
+    width: min(var(--max-width), 100% - (var(--padding) * 2)); 
+    margin-inline: auto;
+    
+    /* Styling udover bredde */
+    position: relative; /* Gør at elementet kan overlappe via. negativ margin-top */
+    margin-top: -5rem;
+    background: var(--color-lighter-grey);
+    padding: 3rem; /* Property - Skal ikke forvekles med --padding variablen til minmax() */
+}
+
+.single-artikel .indhold h2, .single-artikel .indhold p, .single-artikel .indhold q {
+    margin-bottom: 1rem;
+}
+
+.single-artikel .indhold .single-artikel .indhold h3, .single-artikel .indhold h4 {
+    margin: 2rem 0 1rem 0;
+}
+
+.single-artikel .indhold .citat {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.single-artikel .indhold q {
+    font-size: 2rem;
+    font-weight: 600;
+    display: block;
+    font-style: italic;
     line-height: 1.25;
+}
+
+.single-artikel .indhold img {
+    border-radius: 1rem;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1rem;
+}
+
+.single-artikel .indhold figcaption {
+    line-height: 1.5;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.single-artikel .indhold ol {
+    font-size: 1.222rem;
+    /* SVARER TIL 22PX */
+
+    @media screen and (max-width: 768px) {
+        font-size: 1.111rem; /* Svarer til ca. 20px */
+        padding-left: 1.5rem; /* Ikke ligeså voldsomt "indentation" i listen på mobil */
+    }
+}
+
+.single-artikel .indhold ol .no-style {
+    list-style-type: none;
+}
+
+.single-artikel .indhold ol .indlejret-billeder {
+    display: flex;
+    gap: 1rem;
+    max-width: 100%;
+}
+
+.single-artikel .indhold ol .indlejret-billeder img {
+    flex: 1;
+    min-width: 0;
+    /* Min-width er som standard auto og respekterer derfor billedets originale størrelse. min-width sættes til 0 så billederne ikke overflower pga. gap propertien
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/flex#:~:text=By%20default%20flex%20items%20don%27t%20shrink%20below%20their%20min%2Dcontent%20size.%20To%20change%20this%2C%20set%20the%20item%27s%20min%2Dwidth%20or%20min%2Dheight.
+    */
+}
+
+.single-artikel .indhold .artikel-evaluering-titel {
+    text-align: center;
+}
+
+.single-artikel .indhold .artikel-evaluering {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.single-artikel .indhold .artikel-evaluering button {
+    background: none;
+    border: 0;
+    font-size: 1rem;
+    color: var(--color-dark-blue);
+    cursor: pointer;
+}
+
+.single-artikel .indhold .artikel-evaluering button:hover {
+    color: var(--color-accent-blue);
+    text-decoration: underline;
+}
+
+.single-artikel .indhold .artikel-evaluering i {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.single-artikel .indhold .artikel-evaluering i.bi-emoji-frown-fill {
+    color: #9E5757;
+}
+
+.single-artikel .indhold .artikel-evaluering i.bi-emoji-laughing-fill {
+    color: #62875E;
+}
+
+.single-artikel .indhold ul.referencer li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Lille computerskærm (1024px og mindre) tilpasning af indhold containeren */
+@media screen and (max-width: 1024px) {
+    .single-artikel .indhold {
+        width: 100%; 
+        
+        /* Styling udover bredde */
+        position: relative;
+        margin-top: 0;
+        background: var(--color-white);
+        padding: 2rem 0; 
+    }
+}
+
+/* Mobil tilpasning af single artikel */
+@media screen and (max-width: 768px) {
+    /* Artikel hero (breadcrumbs, overskrift, manchet, meta-info */
+    .single-artikel .hero nav.breadcrumbs {
+        line-height: 1.5;
+        margin-top: 1rem;
+    }
+
+    .single-artikel .hero .meta-info {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0 0 1rem 0;
+    }
+
+    /* Artikel indhold */
+
+    .single-artikel .indhold .citat {
+        margin: 2rem 0;
+    }
+
+    .single-artikel .indhold q {
+        font-size: 1.5rem;
+    }
+
+    .single-artikel .indhold figcaption {
+        font-size: 0.888rem; /* Svarer til ca. 16 px */
+    }
+
+    .single-artikel .indhold .indlejret-billeder {
+        flex-direction: column;
+    }
+
+    .single-artikel .indhold .indlejret-billeder img {
+        margin: 0;
+    }
+
+}
+
+
+/* #######################################  */
+/* KONTAKT SIDE /kontakt.html
+/* #######################################  */
+
+.kontakt { /* Dette er main på /kontakt.html */
+    display: flex;
+    flex-direction: column;
+}
+
+.kontakt section {
+    display: flex;
+    padding: 2rem 0;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.kontakt .hero {
+    flex-direction: column;
+}
+
+.kontakt .hero p.subtitle {
+    max-width: 768px;
+}
+
+/* Sektionen med liste af kontaktinfo og formular */
+.kontakt .formular-sektion {
+    gap: 2rem;
+    /* order: 1; */
+}
+
+.kontakt .formular-sektion div {
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+
+.kontakt .formular-sektion div > *,
+.kontakt .info div > * { /* Vælger kun det/de elementer der er child til .div, ikke grandchild elementer */
+    margin-bottom: 0.75rem;
+}
+
+.kontakt .formular-sektion div address {
+    font-style: normal; /* Default er italic */
+}
+
+.kontakt .formular-sektion div ul {
+    list-style: none;
+    padding: 0 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.kontakt .formular-sektion ul li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.kontakt .formular-sektion ul li i {
+    font-size: 1.5rem;
+}
+
+/* Formularen  */
+.kontakt form label,
+.kontakt form input[type="text"],
+.kontakt form input[type="email"],
+.kontakt form button,
+.kontakt form textarea {
+    width: 100%;
+}
+
+.kontakt form label {
+    margin-bottom: 0.5rem;
+    display: inline-block; /* Ligesom <a> tags, ellers kan der ikke tilføjes margin idet det er et inline element */
+}
+
+.kontakt form input[type="text"],
+.kontakt form input[type="email"] {
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-light-grey);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.kontakt form textarea {
+    padding: 1rem;
+    border: 2px solid var(--color-light-grey);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.kontakt form .checkbox {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    line-height: 1.25;
+    font-size: 0.888rem; /* Svarer til 16px */
+    color: var(--color-lightened-dark-blue);
+    margin-bottom: 1rem;
+}
+
+.kontakt form .checkbox a {
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-blue);
+}
+
+.kontakt form .checkbox input[type="checkbox"] {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.kontakt .info {
+    padding: 2rem 0 1rem 0;
 }

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle Artikler | Digitalt Privatliv</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <script src="/js/script.js" defer></script> <!-- Defer sørger for filen indlæses først efter HTML'en -->
+</head>
+
+<body>
+    <!--Skip to hovedindhold-->
+    <a href="#hovedindhold" class="skip-to-main-content-link">Gå til hovedindhold </a>
+
+    <header>
+        <div class="preheader">
+            <div class="container">
+                <a href="tel:+4511223344">+45 11 22 33 44</a>
+                <a href="mailto:hej@digitaltprivatliv.dk">hej@digitaltprivatliv.dk</a>
+                <p>Support: Man-Fre 08.00-16.30</p>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <a class="logo" href="/index.html">
+                    <img src="/img/digitalt-privatliv-logo-dark-3.png" alt="Digitalt Privatliv Logo">
+                </a>
+
+                <!-- Bars -->
+                <button id="hamburger" aria-expanded="false" aria-controls="menu" aria-label="open navigation">
+                    <!-- aria-expanden fortæller skærmoplæseren at menuen er lukket-->
+                    <!--aria-label giver skærmlæseren en besked om hvad knappen gør-->
+                    <!--button gør menuen trykbar så den kan åbnes via tastatur-->
+                    <!--aria-controls fortæller skærmoplæseren at menuen er styret af knappen-->
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <ul id="menu">
+                    <li class="nav-link"><a href="/index.html">Forside</a></li>
+                    <li class="nav-link active"><a href="/artikler/index.html">Artikler</a></li>
+                    <li class="nav-link"><a href="/kontakt.html">Kontakt</a></li>
+
+                    <li><a class="cta-knap mellem-knap hamburger-cta" href="/kontakt.html">Brug for hjælp?</a></li>
+                </ul>
+
+                <a class="cta-knap mellem-knap" href="/kontakt.html">Brug for hjælp?</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hovedindhold -->
+    <main id="hovedindhold">
+        <section class="artikler featured-sektion container">
+            <h1 class="title">Vores artikler</h1>
+            <p class="subtitle">Nedenfor finder du alle vores artikler om alt fra hvordan du beskytter dit privatliv på internettet til
+                hvordan du gennemskuer falske mail, opslag på sociale medier, m.m.</p>
+
+            <h2 class="title">Fremhævet artikler</h2>
+
+            <article class="featured">
+                <a class="kategori" href="#">Sikkerhed</a>
+                <h3><a href="/artikler/din-identitet-og-data-kan-vaere-laekket-i-nyt-cyberangreb.html">Din identitet og data kan være lækket i nyt cyberangreb</a></h3>
+                <p>26. oktober 2026</p>
+            </article>
+
+            <div class="artikler-article-cards">
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-2.jpg" alt="VPN på computerskærm">
+                    </a>
+                    <a class="kategori" href="#">Netværk</a>
+                    <h3><a href="#">Fordele og ulemper ved at anvende en VPN</a></h3>
+                    <p>13. november 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-3.jpg" alt="Instagram appen på telefonskærm">
+                    </a>
+                    <a class="kategori" href="#">Sociale medier</a>
+                    <h3><a href="#">Hvordan gennemskuer man AI på sociale medier?</a></h3>
+                    <p>9. november 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-4.jpg" alt="ChatGPT på computerskærm">
+                    </a>
+                    <a class="kategori" href="#">Kunstig intelligens</a>
+                    <h3><a href="#">Derfor skal du holde igen med at skrive til "chatten"</a></h3>
+                    <p>1. november 2026</p>
+                </article>
+            </div>
+
+        </section>
+
+        <section class="artikler container">
+            <h2 class="title">Alle artikler</h2>
+
+            <div class="artikler-article-cards">
+                <article>
+                    <a href="#">
+                        <!-- TODO: Skal dette link gemmes fra skærmlæser??? -->
+                        <img src="/img/artikler/artikel-1.jpg" alt="">
+                    </a>
+                    <a class="kategori" href="#">Sikkerhed</a>
+                    <h3><a href="#">Hvorfor du bør bruge en passwordmanager</a></h3>
+                    <p>30. oktober 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-2.jpg" alt="">
+                    </a>
+                    <a class="kategori" href="#">Sociale medier</a>
+                    <h3><a href="#">Hvad er Fake News og hvordan spotter man det?</a></h3>
+                    <p>28. oktober 2026</p>
+                </article>
+                <article>
+                    <a href="#">
+                        <img src="/img/artikler/artikel-3.jpg" alt="">
+                    </a>
+                    <a class="kategori" href="#">Online handel</a>
+                    <h3><a href="#">Undgå at blive svindlet når du shopper online</a></h3>
+                    <p>17. oktober 2026</p>
+                </article>
+            </div>
+
+            <a class="cta-knap mellem-knap outline" href="#">Indlæs flere</a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container container">
+            <section>
+                <h3>Genveje</h3>
+                <ul>
+                    <li class="nav-link"><a href="/index.html">Forside</a></li>
+                    <li class="nav-link"><a href="/artikler/index.html">Artikler</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="/kontakt.html">Kontakt</a></li>
+
+                    <li class="nav-link"><a href="#">Helpdesk</a></li>
+                    <li class="nav-link"><a href="#">Presse</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>B2C</h3>
+                <ul>
+                    <li class="nav-link"><a href="#">Sikkerhedsscan</a></li>
+                    <li class="nav-link"><a href="#">Forsigtighed på netter</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="#">Top 3 tips</a></li>
+
+                    <li class="nav-link"><a href="#">Pådgivning Privat</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>B2B</h3>
+                <ul>
+                    <li class="nav-link"><a href="#">Tilgængelighedstest</a></li>
+                    <li class="nav-link"><a href="#">Tilgængelighedserklæring</a></li>
+                    <li class="nav-link extra-bottom-margin"><a href="#">Rådgivning Erhverv</a></li>
+
+                    <li class="nav-link"><a href="#">Workshops</a></li>
+                    <li class="nav-link"><a href="#">E-læring</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Følg os</h3>
+                <ul>
+                    <li class="nav-link"><a href="https://facebook.com" target="_blank"><i
+                                class="bi bi-facebook"></i>Facebook</a></li>
+                    <li class="nav-link"><a href="https://instagram.com" target="_blank"><i
+                                class="bi bi-instagram"></i>Instagram</a></li>
+                    <li class="nav-link"><a href="https://linkedin.com" target="_blank"><i
+                                class="bi bi-linkedin"></i>LinkedIn</a></li>
+                </ul>
+
+            </section>
+            <div class="footer-copyright">
+                <a class="logo" href="/index.html">
+                    <img src="/img/digitalt-privatliv-logo-dark-3.png" alt="Digitalt Privatliv Logo">
+                </a>
+                <div class="copyright-text">
+                    <p>Digitalt Privatliv ApS © 2026</p>
+                    <ul>
+                        <li><a href="#">Handelsbetingelser</a></li>
+                        <li><a href="#">Privatlivspolitik</a></li>
+                        <li><a href="#">Tilgængelighedserklæring</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

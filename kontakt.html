@@ -43,10 +43,10 @@
                     <li class="nav-link"><a href="/artikler/index.html">Artikler</a></li>
                     <li class="nav-link active"><a href="/kontakt.html">Kontakt</a></li>
 
-                    <li><a class="cta-knap mellem-knap hamburger-cta" href="/kontakt.html">Brug for hjælp?</a></li>
+                     
                 </ul>
 
-                <a class="cta-knap mellem-knap" href="/kontakt.html">Brug for hjælp?</a>
+                <a class="cta-knap mellem-knap" href="#">Brug for hjælp?</a>
             </div>
         </nav>
     </header>
@@ -57,14 +57,16 @@
             <p class="subtitle">Hos Digitalt Privatliv bestræber vi os på at tilbyde den rette hjælp hurtigst muligt. Ved henvendelser via. email eller kontaktformularen vender vi tilbage indenfor 24 timer.</p>
         </section>
 
+        <!-- I Figma Hi-fi prototypen er info sektionen over kontaktformularen, men efter brugertest er kontakt formularen flyttet til øverst pga. vigtigheden -->
         <section class="container formular-sektion">
             <div>
                 <h2>Send os en besked</h2>
                 <p>Har du spørgsmål om hvad vi tilbyder af rådgivning eller har du oplevet noget uforudsigeligt i forhold til din digitale sikkerhed? Kontakt os enten på telefon, email eller via kontaktformularen, så vender vi tilbage indenfor 24 timer.</p>
                 <address>
                     <ul>
-                        <li><i class="bi bi-envelope-fill"></i><a class="text-cta" href="mailto:hej@digitaltprivatliv.dk">hej@digitaltprivatliv.dk</a></li>
-                        <li><i class="bi bi-telephone-fill"></i><a class="text-cta" href="tel:+4511223344">+45 11 22 33 44</a></li>
+                        <!-- Ikonerne har ingen aria-label da de er udelukkende dekorative og linket indeholder forklaring som "E-mail: ..." -->
+                        <li><i class="bi bi-envelope-fill"></i> E-mail: <a class="text-cta" href="mailto:hej@digitaltprivatliv.dk">hej@digitaltprivatliv.dk</a></li>
+                        <li><i class="bi bi-telephone-fill"></i> Telefon: <a class="text-cta" href="tel:+4511223344">+45 11 22 33 44</a></li>
                         <li><i class="bi bi-postcard-fill"></i>CVR-nr: DK12345678</li>
                     </ul>
                 </address>

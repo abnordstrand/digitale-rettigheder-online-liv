@@ -284,8 +284,8 @@ header nav ul {
     /* CENTRERER PÅ CROSS-AXIS (Y-AKSEN IDET flex-direction ER SIN DEFEAULT VÆRDI PÅ "row" */
 }
 
-header #hamburger, header .hamburger-cta {
-    display: none; /* Fjerner hamburger ikon-knappen, cta-knappen inden i hamburger menu overlayet fra dekstop (vises på mobil i @media-query */
+header #hamburger {
+    display: none; /* Fjerner hamburger ikon-knappen fra dekstop (vises på mobil i @media-query */
 }
 
 /* Hamburger menu overlay på mobil */
@@ -348,11 +348,6 @@ header #hamburger, header .hamburger-cta {
 
     nav > * .cta-knap {
         display: none;
-    }
-
-    nav > * .hamburger-cta {
-        display: inline-block;
-        margin-top: 10px;
     }
 
 }
@@ -477,6 +472,12 @@ footer li.nav-link i {
         margin-top: 0.5rem;
     }
 
+    .footer-copyright .copyright-text ul {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
 }
 
 
@@ -592,7 +593,7 @@ section.bento-grid>* {
 }
 
 .bento-box.lille h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .bento-box.lille a.text-cta {
@@ -650,10 +651,62 @@ section.bento-grid>* {
     /* Sørger for at hele billedet/logoet kan ses */
 }
 
-/* Bento grid tilpasset til mobil */
+/* Bento grid tilpasset til lille computer */
+@media screen and (max-width: 1200px) {
+    section.bento-grid>* {
+        padding: 2rem 0;
+        grid-template-columns: repeat(5, 1fr);
+        /* Laver fire lige store kolonner */
+        grid-template-rows: repeat(2, 1fr) minmax(100px, auto);
+        /* Laver først to lige store rækker og tredje række er mindst 100px. Hvis indholdet er højere justeres tredje rækkes højde automatisk */
+        gap: 1rem;
+    }
+
+    .bento-box {
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+
+    .bento-box.stor {
+        grid-column: 1 / 4;
+        grid-row: span 2;
+        gap: 1rem;
+        padding: 3rem 2rem;
+    }
+
+    .bento-box.stor input {
+        padding: 1rem;
+    }
+
+    .hero .bento-box.mellem {
+        display: none;
+    }
+
+    .bento-box.lille {
+        grid-column: span 2;
+        grid-row: span 1;
+        justify-content: space-evenly;
+    }
+
+    .bento-box.partner-logoer {
+        grid-column: 1 / 6;
+        grid-template-columns: repeat(5, 1fr);
+        /* Første kolonne er lidt større på 1.5fr og  derefter er der fem lige store kolonner alle på 1fr */
+        gap: 1.5rem;
+    }
+
+    .partner-logoer h2 {
+        grid-column: span 5;
+    }
+
+    .partner-logoer img {
+        padding: 0;
+    }
+}
+
+/* Bento grid tilpasset til tablet */
 @media screen and (max-width: 768px) {
     section.bento-grid>* {
-        display: grid;
         grid-template-columns: repeat(2, 1fr); /* Laver to lige store kolonner */
         grid-template-rows: repeat(4, auto); /* Laver fire rækker med auto højde */
         gap: 1rem;
@@ -686,18 +739,30 @@ section.bento-grid>* {
     .bento-box.partner-logoer {
         grid-column: 1 / 3;
         grid-row: span 1;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Første kolonne er lidt større på 1.5fr og  derefter er der fem lige store kolonner alle på 1fr */
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
     }
 
     .partner-logoer h2 {
-        grid-column: span 2;
+        grid-column: span 3;
     }
 
-    .partner-logoer img {
-        padding: 0;
+}
+
+/* Bento grid tilpasset til stor mobil */
+@media screen and (max-width: 550px) {
+
+    .bento-box.lille {
+        grid-column: span 2; /* Fylder 1 kolonne i bredden */
+        grid-row: span 1;
+    }
+
+    .bento-box.partner-logoer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .partner-logoer h2 {
+        grid-column: span 2;
     }
 }
 
@@ -922,6 +987,7 @@ section.bento-grid>* {
 
 .info h2, .info p {
     flex-grow: 1;
+    margin-bottom: 1.5rem;
 }
 
 .info .info-text-container .cta-knap-container {
@@ -934,7 +1000,7 @@ section.bento-grid>* {
     display: inline-block;
     width: 50%;
     height: fit-content;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-align: center;
 }
 
@@ -945,6 +1011,10 @@ section.bento-grid>* {
         padding-top: 5rem;
     }
 
+    .info .info-image img {
+        max-height: 70vh;
+    }
+
     .info .info-text-container {
         order: 0;
         padding: 0;
@@ -953,6 +1023,7 @@ section.bento-grid>* {
     .info .info-text-container .cta-knap-container {
         flex-direction: column;
         gap: 0;
+        margin-bottom: 2rem;
     }
 
     .info .info-text-container .cta-knap {
@@ -1214,7 +1285,6 @@ section.bento-grid>* {
 /* Sektionen med liste af kontaktinfo og formular */
 .kontakt .formular-sektion {
     gap: 2rem;
-    /* order: 1; */
 }
 
 .kontakt .formular-sektion div {
@@ -1302,4 +1372,10 @@ section.bento-grid>* {
 
 .kontakt .info {
     padding: 2rem 0 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .kontakt .formular-sektion {
+        flex-direction: column;
+    }
 }
